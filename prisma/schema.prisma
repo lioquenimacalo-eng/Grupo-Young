@@ -1,0 +1,113 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+  url      = env("DATABASE_URL")
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model User {
+  idUser    Int               @id @default(autoincrement())
+  nome   String
+  email        String?
+  senha        String?
+  localizacao        String
+  role         Role
+  contacto     Int
+  arquivos     Arquivo[]
+  mensagens    Mensagem[]
+
+  interesses Interesse[]
+}
+
+model Imoveis {
+  idImovel       Int                @id @default(autoincrement())
+  titulo         String
+  descricao      String
+  preco          Float
+  dimensao       String
+  localizacao    String
+  quartos        Int?
+  wc             Int?
+  dataImovel     DateTime
+  tipoImovel     TipoImovel 
+  finalidade     Finalidade
+
+  interesses Interesse[]
+}
+
+model Arquivo {
+  idArquivo    Int         @id @default(autoincrement())
+  filename     String
+  urlfile      String
+  dataFile     DateTime
+  local        localArqu
+  tipoArqui    TipoArqui
+  tipoFile     TipoFile
+  userId       Int?
+  mensagemId   Int?
+  user         User?       @relation(fields: [userId], references: [idUser], onDelete: Cascade)
+  mensagems    Mensagem?   @relation(fields: [mensagemId], references: [idMensagem], onDelete: Cascade)
+}
+
+model Mensagem{
+ idMensagem  Int  @id @default(autoincrement())
+ texto     String
+ dataMensagem DateTime
+ arquivo    Arquivo[]
+ userId    Int
+ user      User  @relation(fields: [userId], references: [idUser], onDelete: Cascade)
+}
+
+model Interesse {
+  idInteresse Int @id @default(autoincrement())
+  leadId Int
+  lead   User @relation(fields: [leadId], references: [idUser], onDelete: Cascade)
+  imovelId Int
+  imovel Imoveis @relation(fields: [imovelId], references: [idImovel],onDelete: Cascade)
+  observacoes String
+  dataInteresse DateTime
+}
+
+enum TipoImovel {
+ Terreno
+ Moradia
+ Apartamento
+ Predio_comercial
+}
+
+enum Finalidade{
+  Venda
+  Aluguer
+}
+
+enum status {
+  Vendido
+  Desponivel
+}
+
+enum Role {
+  Admin
+  Corretor
+  Parceiro
+  Leads
+}
+
+enum localArqu {
+  IMOVEL
+  MESSAGEM
+}
+
+enum TipoArqui {
+  USER
+  ADMIN
+}
+
+enum TipoFile {
+  Imagem
+  Video
+}
+
+
