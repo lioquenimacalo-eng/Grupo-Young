@@ -14,12 +14,12 @@ model User {
   email        String?
   senha        String?
   localizacao  String
-  role         Role
   contacto     Int
+  role         Role
   arquivos     Arquivo[]
   mensagens    Mensagem[]
-
   interesses Interesse[]
+  imoveis Imoveis[]
 }
 
 model Imoveis {
@@ -36,6 +36,8 @@ model Imoveis {
   finalidade     Finalidade
   status         status
   statusUpload   TipoStatus
+  idUser          Int
+  IdUser         User? @relation(fields: [idUser], references: [idUser], onDelete: Cascade)
   arquivos Arquivo[]
   interesses Interesse[]
 }

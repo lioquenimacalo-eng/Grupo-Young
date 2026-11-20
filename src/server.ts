@@ -5,7 +5,7 @@ import fastify from "fastify";
 import { userRouter } from "@router/userRouter";
 import { leadesRouter } from "@router/leadsRouter";
 // import { centrosRouter } from "@router/centroRouter";
-import { actividadeRouter } from "@router/imoveisRouter";
+import { imoveisRouter } from "@router/imoveisRouter";
 
 import {
   jsonSchemaTransform,
@@ -73,7 +73,7 @@ app.register(leadesRouter, {
 //   prefix: "/centros",
 // });
 
-app.register(actividadeRouter, {
+app.register(imoveisRouter, {
   prefix: "/imoveis",
 });
 

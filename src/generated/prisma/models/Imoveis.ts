@@ -31,6 +31,7 @@ export type ImoveisAvgAggregateOutputType = {
   preco: number | null
   quartos: number | null
   wc: number | null
+  idUser: number | null
 }
 
 export type ImoveisSumAggregateOutputType = {
@@ -38,6 +39,7 @@ export type ImoveisSumAggregateOutputType = {
   preco: number | null
   quartos: number | null
   wc: number | null
+  idUser: number | null
 }
 
 export type ImoveisMinAggregateOutputType = {
@@ -54,6 +56,7 @@ export type ImoveisMinAggregateOutputType = {
   finalidade: $Enums.Finalidade | null
   status: $Enums.status | null
   statusUpload: $Enums.TipoStatus | null
+  idUser: number | null
 }
 
 export type ImoveisMaxAggregateOutputType = {
@@ -70,6 +73,7 @@ export type ImoveisMaxAggregateOutputType = {
   finalidade: $Enums.Finalidade | null
   status: $Enums.status | null
   statusUpload: $Enums.TipoStatus | null
+  idUser: number | null
 }
 
 export type ImoveisCountAggregateOutputType = {
@@ -86,6 +90,7 @@ export type ImoveisCountAggregateOutputType = {
   finalidade: number
   status: number
   statusUpload: number
+  idUser: number
   _all: number
 }
 
@@ -95,6 +100,7 @@ export type ImoveisAvgAggregateInputType = {
   preco?: true
   quartos?: true
   wc?: true
+  idUser?: true
 }
 
 export type ImoveisSumAggregateInputType = {
@@ -102,6 +108,7 @@ export type ImoveisSumAggregateInputType = {
   preco?: true
   quartos?: true
   wc?: true
+  idUser?: true
 }
 
 export type ImoveisMinAggregateInputType = {
@@ -118,6 +125,7 @@ export type ImoveisMinAggregateInputType = {
   finalidade?: true
   status?: true
   statusUpload?: true
+  idUser?: true
 }
 
 export type ImoveisMaxAggregateInputType = {
@@ -134,6 +142,7 @@ export type ImoveisMaxAggregateInputType = {
   finalidade?: true
   status?: true
   statusUpload?: true
+  idUser?: true
 }
 
 export type ImoveisCountAggregateInputType = {
@@ -150,6 +159,7 @@ export type ImoveisCountAggregateInputType = {
   finalidade?: true
   status?: true
   statusUpload?: true
+  idUser?: true
   _all?: true
 }
 
@@ -253,6 +263,7 @@ export type ImoveisGroupByOutputType = {
   finalidade: $Enums.Finalidade
   status: $Enums.status
   statusUpload: $Enums.TipoStatus
+  idUser: number
   _count: ImoveisCountAggregateOutputType | null
   _avg: ImoveisAvgAggregateOutputType | null
   _sum: ImoveisSumAggregateOutputType | null
@@ -292,6 +303,8 @@ export type ImoveisWhereInput = {
   finalidade?: Prisma.EnumFinalidadeFilter<"Imoveis"> | $Enums.Finalidade
   status?: Prisma.EnumstatusFilter<"Imoveis"> | $Enums.status
   statusUpload?: Prisma.EnumTipoStatusFilter<"Imoveis"> | $Enums.TipoStatus
+  idUser?: Prisma.IntFilter<"Imoveis"> | number
+  IdUser?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   arquivos?: Prisma.ArquivoListRelationFilter
   interesses?: Prisma.InteresseListRelationFilter
 }
@@ -310,6 +323,8 @@ export type ImoveisOrderByWithRelationInput = {
   finalidade?: Prisma.SortOrder
   status?: Prisma.SortOrder
   statusUpload?: Prisma.SortOrder
+  idUser?: Prisma.SortOrder
+  IdUser?: Prisma.UserOrderByWithRelationInput
   arquivos?: Prisma.ArquivoOrderByRelationAggregateInput
   interesses?: Prisma.InteresseOrderByRelationAggregateInput
   _relevance?: Prisma.ImoveisOrderByRelevanceInput
@@ -332,6 +347,8 @@ export type ImoveisWhereUniqueInput = Prisma.AtLeast<{
   finalidade?: Prisma.EnumFinalidadeFilter<"Imoveis"> | $Enums.Finalidade
   status?: Prisma.EnumstatusFilter<"Imoveis"> | $Enums.status
   statusUpload?: Prisma.EnumTipoStatusFilter<"Imoveis"> | $Enums.TipoStatus
+  idUser?: Prisma.IntFilter<"Imoveis"> | number
+  IdUser?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   arquivos?: Prisma.ArquivoListRelationFilter
   interesses?: Prisma.InteresseListRelationFilter
 }, "idImovel">
@@ -350,6 +367,7 @@ export type ImoveisOrderByWithAggregationInput = {
   finalidade?: Prisma.SortOrder
   status?: Prisma.SortOrder
   statusUpload?: Prisma.SortOrder
+  idUser?: Prisma.SortOrder
   _count?: Prisma.ImoveisCountOrderByAggregateInput
   _avg?: Prisma.ImoveisAvgOrderByAggregateInput
   _max?: Prisma.ImoveisMaxOrderByAggregateInput
@@ -374,6 +392,7 @@ export type ImoveisScalarWhereWithAggregatesInput = {
   finalidade?: Prisma.EnumFinalidadeWithAggregatesFilter<"Imoveis"> | $Enums.Finalidade
   status?: Prisma.EnumstatusWithAggregatesFilter<"Imoveis"> | $Enums.status
   statusUpload?: Prisma.EnumTipoStatusWithAggregatesFilter<"Imoveis"> | $Enums.TipoStatus
+  idUser?: Prisma.IntWithAggregatesFilter<"Imoveis"> | number
 }
 
 export type ImoveisCreateInput = {
@@ -389,6 +408,7 @@ export type ImoveisCreateInput = {
   finalidade: $Enums.Finalidade
   status: $Enums.status
   statusUpload: $Enums.TipoStatus
+  IdUser?: Prisma.UserCreateNestedOneWithoutImoveisInput
   arquivos?: Prisma.ArquivoCreateNestedManyWithoutImovelInput
   interesses?: Prisma.InteresseCreateNestedManyWithoutImovelInput
 }
@@ -407,6 +427,7 @@ export type ImoveisUncheckedCreateInput = {
   finalidade: $Enums.Finalidade
   status: $Enums.status
   statusUpload: $Enums.TipoStatus
+  idUser: number
   arquivos?: Prisma.ArquivoUncheckedCreateNestedManyWithoutImovelInput
   interesses?: Prisma.InteresseUncheckedCreateNestedManyWithoutImovelInput
 }
@@ -424,6 +445,7 @@ export type ImoveisUpdateInput = {
   finalidade?: Prisma.EnumFinalidadeFieldUpdateOperationsInput | $Enums.Finalidade
   status?: Prisma.EnumstatusFieldUpdateOperationsInput | $Enums.status
   statusUpload?: Prisma.EnumTipoStatusFieldUpdateOperationsInput | $Enums.TipoStatus
+  IdUser?: Prisma.UserUpdateOneWithoutImoveisNestedInput
   arquivos?: Prisma.ArquivoUpdateManyWithoutImovelNestedInput
   interesses?: Prisma.InteresseUpdateManyWithoutImovelNestedInput
 }
@@ -442,6 +464,7 @@ export type ImoveisUncheckedUpdateInput = {
   finalidade?: Prisma.EnumFinalidadeFieldUpdateOperationsInput | $Enums.Finalidade
   status?: Prisma.EnumstatusFieldUpdateOperationsInput | $Enums.status
   statusUpload?: Prisma.EnumTipoStatusFieldUpdateOperationsInput | $Enums.TipoStatus
+  idUser?: Prisma.IntFieldUpdateOperationsInput | number
   arquivos?: Prisma.ArquivoUncheckedUpdateManyWithoutImovelNestedInput
   interesses?: Prisma.InteresseUncheckedUpdateManyWithoutImovelNestedInput
 }
@@ -460,6 +483,7 @@ export type ImoveisCreateManyInput = {
   finalidade: $Enums.Finalidade
   status: $Enums.status
   statusUpload: $Enums.TipoStatus
+  idUser: number
 }
 
 export type ImoveisUpdateManyMutationInput = {
@@ -491,6 +515,17 @@ export type ImoveisUncheckedUpdateManyInput = {
   finalidade?: Prisma.EnumFinalidadeFieldUpdateOperationsInput | $Enums.Finalidade
   status?: Prisma.EnumstatusFieldUpdateOperationsInput | $Enums.status
   statusUpload?: Prisma.EnumTipoStatusFieldUpdateOperationsInput | $Enums.TipoStatus
+  idUser?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
+export type ImoveisListRelationFilter = {
+  every?: Prisma.ImoveisWhereInput
+  some?: Prisma.ImoveisWhereInput
+  none?: Prisma.ImoveisWhereInput
+}
+
+export type ImoveisOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type ImoveisOrderByRelevanceInput = {
@@ -513,6 +548,7 @@ export type ImoveisCountOrderByAggregateInput = {
   finalidade?: Prisma.SortOrder
   status?: Prisma.SortOrder
   statusUpload?: Prisma.SortOrder
+  idUser?: Prisma.SortOrder
 }
 
 export type ImoveisAvgOrderByAggregateInput = {
@@ -520,6 +556,7 @@ export type ImoveisAvgOrderByAggregateInput = {
   preco?: Prisma.SortOrder
   quartos?: Prisma.SortOrder
   wc?: Prisma.SortOrder
+  idUser?: Prisma.SortOrder
 }
 
 export type ImoveisMaxOrderByAggregateInput = {
@@ -536,6 +573,7 @@ export type ImoveisMaxOrderByAggregateInput = {
   finalidade?: Prisma.SortOrder
   status?: Prisma.SortOrder
   statusUpload?: Prisma.SortOrder
+  idUser?: Prisma.SortOrder
 }
 
 export type ImoveisMinOrderByAggregateInput = {
@@ -552,6 +590,7 @@ export type ImoveisMinOrderByAggregateInput = {
   finalidade?: Prisma.SortOrder
   status?: Prisma.SortOrder
   statusUpload?: Prisma.SortOrder
+  idUser?: Prisma.SortOrder
 }
 
 export type ImoveisSumOrderByAggregateInput = {
@@ -559,6 +598,7 @@ export type ImoveisSumOrderByAggregateInput = {
   preco?: Prisma.SortOrder
   quartos?: Prisma.SortOrder
   wc?: Prisma.SortOrder
+  idUser?: Prisma.SortOrder
 }
 
 export type ImoveisNullableScalarRelationFilter = {
@@ -569,6 +609,48 @@ export type ImoveisNullableScalarRelationFilter = {
 export type ImoveisScalarRelationFilter = {
   is?: Prisma.ImoveisWhereInput
   isNot?: Prisma.ImoveisWhereInput
+}
+
+export type ImoveisCreateNestedManyWithoutIdUserInput = {
+  create?: Prisma.XOR<Prisma.ImoveisCreateWithoutIdUserInput, Prisma.ImoveisUncheckedCreateWithoutIdUserInput> | Prisma.ImoveisCreateWithoutIdUserInput[] | Prisma.ImoveisUncheckedCreateWithoutIdUserInput[]
+  connectOrCreate?: Prisma.ImoveisCreateOrConnectWithoutIdUserInput | Prisma.ImoveisCreateOrConnectWithoutIdUserInput[]
+  createMany?: Prisma.ImoveisCreateManyIdUserInputEnvelope
+  connect?: Prisma.ImoveisWhereUniqueInput | Prisma.ImoveisWhereUniqueInput[]
+}
+
+export type ImoveisUncheckedCreateNestedManyWithoutIdUserInput = {
+  create?: Prisma.XOR<Prisma.ImoveisCreateWithoutIdUserInput, Prisma.ImoveisUncheckedCreateWithoutIdUserInput> | Prisma.ImoveisCreateWithoutIdUserInput[] | Prisma.ImoveisUncheckedCreateWithoutIdUserInput[]
+  connectOrCreate?: Prisma.ImoveisCreateOrConnectWithoutIdUserInput | Prisma.ImoveisCreateOrConnectWithoutIdUserInput[]
+  createMany?: Prisma.ImoveisCreateManyIdUserInputEnvelope
+  connect?: Prisma.ImoveisWhereUniqueInput | Prisma.ImoveisWhereUniqueInput[]
+}
+
+export type ImoveisUpdateManyWithoutIdUserNestedInput = {
+  create?: Prisma.XOR<Prisma.ImoveisCreateWithoutIdUserInput, Prisma.ImoveisUncheckedCreateWithoutIdUserInput> | Prisma.ImoveisCreateWithoutIdUserInput[] | Prisma.ImoveisUncheckedCreateWithoutIdUserInput[]
+  connectOrCreate?: Prisma.ImoveisCreateOrConnectWithoutIdUserInput | Prisma.ImoveisCreateOrConnectWithoutIdUserInput[]
+  upsert?: Prisma.ImoveisUpsertWithWhereUniqueWithoutIdUserInput | Prisma.ImoveisUpsertWithWhereUniqueWithoutIdUserInput[]
+  createMany?: Prisma.ImoveisCreateManyIdUserInputEnvelope
+  set?: Prisma.ImoveisWhereUniqueInput | Prisma.ImoveisWhereUniqueInput[]
+  disconnect?: Prisma.ImoveisWhereUniqueInput | Prisma.ImoveisWhereUniqueInput[]
+  delete?: Prisma.ImoveisWhereUniqueInput | Prisma.ImoveisWhereUniqueInput[]
+  connect?: Prisma.ImoveisWhereUniqueInput | Prisma.ImoveisWhereUniqueInput[]
+  update?: Prisma.ImoveisUpdateWithWhereUniqueWithoutIdUserInput | Prisma.ImoveisUpdateWithWhereUniqueWithoutIdUserInput[]
+  updateMany?: Prisma.ImoveisUpdateManyWithWhereWithoutIdUserInput | Prisma.ImoveisUpdateManyWithWhereWithoutIdUserInput[]
+  deleteMany?: Prisma.ImoveisScalarWhereInput | Prisma.ImoveisScalarWhereInput[]
+}
+
+export type ImoveisUncheckedUpdateManyWithoutIdUserNestedInput = {
+  create?: Prisma.XOR<Prisma.ImoveisCreateWithoutIdUserInput, Prisma.ImoveisUncheckedCreateWithoutIdUserInput> | Prisma.ImoveisCreateWithoutIdUserInput[] | Prisma.ImoveisUncheckedCreateWithoutIdUserInput[]
+  connectOrCreate?: Prisma.ImoveisCreateOrConnectWithoutIdUserInput | Prisma.ImoveisCreateOrConnectWithoutIdUserInput[]
+  upsert?: Prisma.ImoveisUpsertWithWhereUniqueWithoutIdUserInput | Prisma.ImoveisUpsertWithWhereUniqueWithoutIdUserInput[]
+  createMany?: Prisma.ImoveisCreateManyIdUserInputEnvelope
+  set?: Prisma.ImoveisWhereUniqueInput | Prisma.ImoveisWhereUniqueInput[]
+  disconnect?: Prisma.ImoveisWhereUniqueInput | Prisma.ImoveisWhereUniqueInput[]
+  delete?: Prisma.ImoveisWhereUniqueInput | Prisma.ImoveisWhereUniqueInput[]
+  connect?: Prisma.ImoveisWhereUniqueInput | Prisma.ImoveisWhereUniqueInput[]
+  update?: Prisma.ImoveisUpdateWithWhereUniqueWithoutIdUserInput | Prisma.ImoveisUpdateWithWhereUniqueWithoutIdUserInput[]
+  updateMany?: Prisma.ImoveisUpdateManyWithWhereWithoutIdUserInput | Prisma.ImoveisUpdateManyWithWhereWithoutIdUserInput[]
+  deleteMany?: Prisma.ImoveisScalarWhereInput | Prisma.ImoveisScalarWhereInput[]
 }
 
 export type FloatFieldUpdateOperationsInput = {
@@ -637,6 +719,87 @@ export type ImoveisUpdateOneRequiredWithoutInteressesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ImoveisUpdateToOneWithWhereWithoutInteressesInput, Prisma.ImoveisUpdateWithoutInteressesInput>, Prisma.ImoveisUncheckedUpdateWithoutInteressesInput>
 }
 
+export type ImoveisCreateWithoutIdUserInput = {
+  titulo: string
+  descricao: string
+  preco: number
+  dimensao: string
+  localizacao: string
+  quartos?: number | null
+  wc?: number | null
+  dataImovel: Date | string
+  tipoImovel: $Enums.TipoImovel
+  finalidade: $Enums.Finalidade
+  status: $Enums.status
+  statusUpload: $Enums.TipoStatus
+  arquivos?: Prisma.ArquivoCreateNestedManyWithoutImovelInput
+  interesses?: Prisma.InteresseCreateNestedManyWithoutImovelInput
+}
+
+export type ImoveisUncheckedCreateWithoutIdUserInput = {
+  idImovel?: number
+  titulo: string
+  descricao: string
+  preco: number
+  dimensao: string
+  localizacao: string
+  quartos?: number | null
+  wc?: number | null
+  dataImovel: Date | string
+  tipoImovel: $Enums.TipoImovel
+  finalidade: $Enums.Finalidade
+  status: $Enums.status
+  statusUpload: $Enums.TipoStatus
+  arquivos?: Prisma.ArquivoUncheckedCreateNestedManyWithoutImovelInput
+  interesses?: Prisma.InteresseUncheckedCreateNestedManyWithoutImovelInput
+}
+
+export type ImoveisCreateOrConnectWithoutIdUserInput = {
+  where: Prisma.ImoveisWhereUniqueInput
+  create: Prisma.XOR<Prisma.ImoveisCreateWithoutIdUserInput, Prisma.ImoveisUncheckedCreateWithoutIdUserInput>
+}
+
+export type ImoveisCreateManyIdUserInputEnvelope = {
+  data: Prisma.ImoveisCreateManyIdUserInput | Prisma.ImoveisCreateManyIdUserInput[]
+  skipDuplicates?: boolean
+}
+
+export type ImoveisUpsertWithWhereUniqueWithoutIdUserInput = {
+  where: Prisma.ImoveisWhereUniqueInput
+  update: Prisma.XOR<Prisma.ImoveisUpdateWithoutIdUserInput, Prisma.ImoveisUncheckedUpdateWithoutIdUserInput>
+  create: Prisma.XOR<Prisma.ImoveisCreateWithoutIdUserInput, Prisma.ImoveisUncheckedCreateWithoutIdUserInput>
+}
+
+export type ImoveisUpdateWithWhereUniqueWithoutIdUserInput = {
+  where: Prisma.ImoveisWhereUniqueInput
+  data: Prisma.XOR<Prisma.ImoveisUpdateWithoutIdUserInput, Prisma.ImoveisUncheckedUpdateWithoutIdUserInput>
+}
+
+export type ImoveisUpdateManyWithWhereWithoutIdUserInput = {
+  where: Prisma.ImoveisScalarWhereInput
+  data: Prisma.XOR<Prisma.ImoveisUpdateManyMutationInput, Prisma.ImoveisUncheckedUpdateManyWithoutIdUserInput>
+}
+
+export type ImoveisScalarWhereInput = {
+  AND?: Prisma.ImoveisScalarWhereInput | Prisma.ImoveisScalarWhereInput[]
+  OR?: Prisma.ImoveisScalarWhereInput[]
+  NOT?: Prisma.ImoveisScalarWhereInput | Prisma.ImoveisScalarWhereInput[]
+  idImovel?: Prisma.IntFilter<"Imoveis"> | number
+  titulo?: Prisma.StringFilter<"Imoveis"> | string
+  descricao?: Prisma.StringFilter<"Imoveis"> | string
+  preco?: Prisma.FloatFilter<"Imoveis"> | number
+  dimensao?: Prisma.StringFilter<"Imoveis"> | string
+  localizacao?: Prisma.StringFilter<"Imoveis"> | string
+  quartos?: Prisma.IntNullableFilter<"Imoveis"> | number | null
+  wc?: Prisma.IntNullableFilter<"Imoveis"> | number | null
+  dataImovel?: Prisma.DateTimeFilter<"Imoveis"> | Date | string
+  tipoImovel?: Prisma.EnumTipoImovelFilter<"Imoveis"> | $Enums.TipoImovel
+  finalidade?: Prisma.EnumFinalidadeFilter<"Imoveis"> | $Enums.Finalidade
+  status?: Prisma.EnumstatusFilter<"Imoveis"> | $Enums.status
+  statusUpload?: Prisma.EnumTipoStatusFilter<"Imoveis"> | $Enums.TipoStatus
+  idUser?: Prisma.IntFilter<"Imoveis"> | number
+}
+
 export type ImoveisCreateWithoutArquivosInput = {
   titulo: string
   descricao: string
@@ -650,6 +813,7 @@ export type ImoveisCreateWithoutArquivosInput = {
   finalidade: $Enums.Finalidade
   status: $Enums.status
   statusUpload: $Enums.TipoStatus
+  IdUser?: Prisma.UserCreateNestedOneWithoutImoveisInput
   interesses?: Prisma.InteresseCreateNestedManyWithoutImovelInput
 }
 
@@ -667,6 +831,7 @@ export type ImoveisUncheckedCreateWithoutArquivosInput = {
   finalidade: $Enums.Finalidade
   status: $Enums.status
   statusUpload: $Enums.TipoStatus
+  idUser: number
   interesses?: Prisma.InteresseUncheckedCreateNestedManyWithoutImovelInput
 }
 
@@ -699,6 +864,7 @@ export type ImoveisUpdateWithoutArquivosInput = {
   finalidade?: Prisma.EnumFinalidadeFieldUpdateOperationsInput | $Enums.Finalidade
   status?: Prisma.EnumstatusFieldUpdateOperationsInput | $Enums.status
   statusUpload?: Prisma.EnumTipoStatusFieldUpdateOperationsInput | $Enums.TipoStatus
+  IdUser?: Prisma.UserUpdateOneWithoutImoveisNestedInput
   interesses?: Prisma.InteresseUpdateManyWithoutImovelNestedInput
 }
 
@@ -716,6 +882,7 @@ export type ImoveisUncheckedUpdateWithoutArquivosInput = {
   finalidade?: Prisma.EnumFinalidadeFieldUpdateOperationsInput | $Enums.Finalidade
   status?: Prisma.EnumstatusFieldUpdateOperationsInput | $Enums.status
   statusUpload?: Prisma.EnumTipoStatusFieldUpdateOperationsInput | $Enums.TipoStatus
+  idUser?: Prisma.IntFieldUpdateOperationsInput | number
   interesses?: Prisma.InteresseUncheckedUpdateManyWithoutImovelNestedInput
 }
 
@@ -732,6 +899,7 @@ export type ImoveisCreateWithoutInteressesInput = {
   finalidade: $Enums.Finalidade
   status: $Enums.status
   statusUpload: $Enums.TipoStatus
+  IdUser?: Prisma.UserCreateNestedOneWithoutImoveisInput
   arquivos?: Prisma.ArquivoCreateNestedManyWithoutImovelInput
 }
 
@@ -749,6 +917,7 @@ export type ImoveisUncheckedCreateWithoutInteressesInput = {
   finalidade: $Enums.Finalidade
   status: $Enums.status
   statusUpload: $Enums.TipoStatus
+  idUser: number
   arquivos?: Prisma.ArquivoUncheckedCreateNestedManyWithoutImovelInput
 }
 
@@ -781,6 +950,7 @@ export type ImoveisUpdateWithoutInteressesInput = {
   finalidade?: Prisma.EnumFinalidadeFieldUpdateOperationsInput | $Enums.Finalidade
   status?: Prisma.EnumstatusFieldUpdateOperationsInput | $Enums.status
   statusUpload?: Prisma.EnumTipoStatusFieldUpdateOperationsInput | $Enums.TipoStatus
+  IdUser?: Prisma.UserUpdateOneWithoutImoveisNestedInput
   arquivos?: Prisma.ArquivoUpdateManyWithoutImovelNestedInput
 }
 
@@ -798,7 +968,75 @@ export type ImoveisUncheckedUpdateWithoutInteressesInput = {
   finalidade?: Prisma.EnumFinalidadeFieldUpdateOperationsInput | $Enums.Finalidade
   status?: Prisma.EnumstatusFieldUpdateOperationsInput | $Enums.status
   statusUpload?: Prisma.EnumTipoStatusFieldUpdateOperationsInput | $Enums.TipoStatus
+  idUser?: Prisma.IntFieldUpdateOperationsInput | number
   arquivos?: Prisma.ArquivoUncheckedUpdateManyWithoutImovelNestedInput
+}
+
+export type ImoveisCreateManyIdUserInput = {
+  idImovel?: number
+  titulo: string
+  descricao: string
+  preco: number
+  dimensao: string
+  localizacao: string
+  quartos?: number | null
+  wc?: number | null
+  dataImovel: Date | string
+  tipoImovel: $Enums.TipoImovel
+  finalidade: $Enums.Finalidade
+  status: $Enums.status
+  statusUpload: $Enums.TipoStatus
+}
+
+export type ImoveisUpdateWithoutIdUserInput = {
+  titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  descricao?: Prisma.StringFieldUpdateOperationsInput | string
+  preco?: Prisma.FloatFieldUpdateOperationsInput | number
+  dimensao?: Prisma.StringFieldUpdateOperationsInput | string
+  localizacao?: Prisma.StringFieldUpdateOperationsInput | string
+  quartos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  wc?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dataImovel?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tipoImovel?: Prisma.EnumTipoImovelFieldUpdateOperationsInput | $Enums.TipoImovel
+  finalidade?: Prisma.EnumFinalidadeFieldUpdateOperationsInput | $Enums.Finalidade
+  status?: Prisma.EnumstatusFieldUpdateOperationsInput | $Enums.status
+  statusUpload?: Prisma.EnumTipoStatusFieldUpdateOperationsInput | $Enums.TipoStatus
+  arquivos?: Prisma.ArquivoUpdateManyWithoutImovelNestedInput
+  interesses?: Prisma.InteresseUpdateManyWithoutImovelNestedInput
+}
+
+export type ImoveisUncheckedUpdateWithoutIdUserInput = {
+  idImovel?: Prisma.IntFieldUpdateOperationsInput | number
+  titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  descricao?: Prisma.StringFieldUpdateOperationsInput | string
+  preco?: Prisma.FloatFieldUpdateOperationsInput | number
+  dimensao?: Prisma.StringFieldUpdateOperationsInput | string
+  localizacao?: Prisma.StringFieldUpdateOperationsInput | string
+  quartos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  wc?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dataImovel?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tipoImovel?: Prisma.EnumTipoImovelFieldUpdateOperationsInput | $Enums.TipoImovel
+  finalidade?: Prisma.EnumFinalidadeFieldUpdateOperationsInput | $Enums.Finalidade
+  status?: Prisma.EnumstatusFieldUpdateOperationsInput | $Enums.status
+  statusUpload?: Prisma.EnumTipoStatusFieldUpdateOperationsInput | $Enums.TipoStatus
+  arquivos?: Prisma.ArquivoUncheckedUpdateManyWithoutImovelNestedInput
+  interesses?: Prisma.InteresseUncheckedUpdateManyWithoutImovelNestedInput
+}
+
+export type ImoveisUncheckedUpdateManyWithoutIdUserInput = {
+  idImovel?: Prisma.IntFieldUpdateOperationsInput | number
+  titulo?: Prisma.StringFieldUpdateOperationsInput | string
+  descricao?: Prisma.StringFieldUpdateOperationsInput | string
+  preco?: Prisma.FloatFieldUpdateOperationsInput | number
+  dimensao?: Prisma.StringFieldUpdateOperationsInput | string
+  localizacao?: Prisma.StringFieldUpdateOperationsInput | string
+  quartos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  wc?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dataImovel?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tipoImovel?: Prisma.EnumTipoImovelFieldUpdateOperationsInput | $Enums.TipoImovel
+  finalidade?: Prisma.EnumFinalidadeFieldUpdateOperationsInput | $Enums.Finalidade
+  status?: Prisma.EnumstatusFieldUpdateOperationsInput | $Enums.status
+  statusUpload?: Prisma.EnumTipoStatusFieldUpdateOperationsInput | $Enums.TipoStatus
 }
 
 
@@ -855,6 +1093,8 @@ export type ImoveisSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   finalidade?: boolean
   status?: boolean
   statusUpload?: boolean
+  idUser?: boolean
+  IdUser?: boolean | Prisma.Imoveis$IdUserArgs<ExtArgs>
   arquivos?: boolean | Prisma.Imoveis$arquivosArgs<ExtArgs>
   interesses?: boolean | Prisma.Imoveis$interessesArgs<ExtArgs>
   _count?: boolean | Prisma.ImoveisCountOutputTypeDefaultArgs<ExtArgs>
@@ -876,10 +1116,12 @@ export type ImoveisSelectScalar = {
   finalidade?: boolean
   status?: boolean
   statusUpload?: boolean
+  idUser?: boolean
 }
 
-export type ImoveisOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"idImovel" | "titulo" | "descricao" | "preco" | "dimensao" | "localizacao" | "quartos" | "wc" | "dataImovel" | "tipoImovel" | "finalidade" | "status" | "statusUpload", ExtArgs["result"]["imoveis"]>
+export type ImoveisOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"idImovel" | "titulo" | "descricao" | "preco" | "dimensao" | "localizacao" | "quartos" | "wc" | "dataImovel" | "tipoImovel" | "finalidade" | "status" | "statusUpload" | "idUser", ExtArgs["result"]["imoveis"]>
 export type ImoveisInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  IdUser?: boolean | Prisma.Imoveis$IdUserArgs<ExtArgs>
   arquivos?: boolean | Prisma.Imoveis$arquivosArgs<ExtArgs>
   interesses?: boolean | Prisma.Imoveis$interessesArgs<ExtArgs>
   _count?: boolean | Prisma.ImoveisCountOutputTypeDefaultArgs<ExtArgs>
@@ -888,6 +1130,7 @@ export type ImoveisInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
 export type $ImoveisPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Imoveis"
   objects: {
+    IdUser: Prisma.$UserPayload<ExtArgs> | null
     arquivos: Prisma.$ArquivoPayload<ExtArgs>[]
     interesses: Prisma.$InteressePayload<ExtArgs>[]
   }
@@ -905,6 +1148,7 @@ export type $ImoveisPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     finalidade: $Enums.Finalidade
     status: $Enums.status
     statusUpload: $Enums.TipoStatus
+    idUser: number
   }, ExtArgs["result"]["imoveis"]>
   composites: {}
 }
@@ -1245,6 +1489,7 @@ readonly fields: ImoveisFieldRefs;
  */
 export interface Prisma__ImoveisClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  IdUser<T extends Prisma.Imoveis$IdUserArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Imoveis$IdUserArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   arquivos<T extends Prisma.Imoveis$arquivosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Imoveis$arquivosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ArquivoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   interesses<T extends Prisma.Imoveis$interessesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Imoveis$interessesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InteressePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -1289,6 +1534,7 @@ export interface ImoveisFieldRefs {
   readonly finalidade: Prisma.FieldRef<"Imoveis", 'Finalidade'>
   readonly status: Prisma.FieldRef<"Imoveis", 'status'>
   readonly statusUpload: Prisma.FieldRef<"Imoveis", 'TipoStatus'>
+  readonly idUser: Prisma.FieldRef<"Imoveis", 'Int'>
 }
     
 
@@ -1629,6 +1875,25 @@ export type ImoveisDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Limit how many Imoveis to delete.
    */
   limit?: number
+}
+
+/**
+ * Imoveis.IdUser
+ */
+export type Imoveis$IdUserArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the User
+   */
+  select?: Prisma.UserSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the User
+   */
+  omit?: Prisma.UserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
+  where?: Prisma.UserWhereInput
 }
 
 /**

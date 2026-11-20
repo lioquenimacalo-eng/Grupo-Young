@@ -30,13 +30,13 @@ export type CreateAdmin = z.infer<typeof CreateTypeAdmin>;
 
 export const CreateTypeUser = z.object({
   nome: z.string().min(2, "Insira o nome completo!"),
-  email: z.string().email("Email inválido.").optional().or(z.literal("")),
+  email: z.string().email("Email inválido."),
   senha: z.string().min(6, "A senha deve ter no mínimo 6 caracteres.").optional(),
   localizacao: z.string().min(2, "Localização em falta."),
+  contacto: z.number().min(9, "Número de contacto inválido."),
   role: z.nativeEnum(Role, {
     message: "Selecione um tipo de utilizador válido.",
   }),
-  contacto: z.string().min(9, "Número de contacto inválido."),
 });
 
 export type CreateUser = z.infer<typeof CreateTypeUser>;
@@ -48,7 +48,7 @@ export const UpdateTypeUser = z.object({
   senha: z.string().min(6, "A senha deve ter no mínimo 6 caracteres.").optional(),
   localizacao: z.string().min(2, "Localização inválida.").optional(),
   role: z.nativeEnum(Role).optional(),
-  contacto: z.string().min(9, "Número de contacto inválido.").optional(),
+  contacto: z.number().min(9, "Número de contacto inválido.").optional(),
 });
 
 export type UpdateUser = z.infer<typeof UpdateTypeUser>;

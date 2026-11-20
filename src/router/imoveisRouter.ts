@@ -105,7 +105,7 @@ const idArquivoSchema = z.object({
   ),
 });
 
-export async function actividadeRouter(app: FastifyTypeInstance) {
+export async function imoveisRouter(app: FastifyTypeInstance) {
   const controllerImovel = new ImoveisController();
 
   app.post(

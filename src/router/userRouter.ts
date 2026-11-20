@@ -192,49 +192,49 @@ export async function userRouter(app: FastifyTypeInstance) {
     async (req, res) => controllUser.deleteUser(req, res),
   );
 
-  // Login Admin
-  app.post(
-    "/login",
-    {
-      schema: {
-        description: "Login Admin",
-        tags: ["Users"],
-        body: z.object({
-          email: z.email().min(1, "Email do administrador Invalido!"),
-          password: z.string().min(1, "Senha do Admin é necessária!"),
-        }),
-        response: {
-          200: z.object({
-            token: z.string(),
-            message: z.boolean(),
-          }),
-        },
-      },
-    },
-    async (req, res) => controllUser.LoginUser(req, res),
-  );
+  // // Login Admin
+  // app.post(
+  //   "/login",
+  //   {
+  //     schema: {
+  //       description: "Login Admin",
+  //       tags: ["Users"],
+  //       body: z.object({
+  //         email: z.email().min(1, "Email do administrador Invalido!"),
+  //         password: z.string().min(1, "Senha do Admin é necessária!"),
+  //       }),
+  //       response: {
+  //         200: z.object({
+  //           token: z.string(),
+  //           message: z.boolean(),
+  //         }),
+  //       },
+  //     },
+  //   },
+  //   async (req, res) => controllUser.LoginUser(req, res),
+  // );
 
-  //Dashboard
-  app.get(
-    "/dashboard",
-    {
-      schema: {
-        description: "DashBoard",
-        tags: ["Users"],
-        response: {
-          200: z.object({
-            totalUsuario: z.number(),
-            totalParoquia: z.number(),
-            totalCentros: z.number(),
-            totalUsuarioPromessados: z.number(),
-            totalUsuarioNaoPromessados: z.number(),
-          }),
-        },
-      },
-    },
-    async (req, res) => controllUser.dashboard(req, res),
-  );
+  // Dashboard
+  // app.get(
+  //   "/dashboard",
+  //   {
+  //     schema: {
+  //       description: "DashBoard",
+  //       tags: ["Users"],
+  //       response: {
+  //         200: z.object({
+  //           totalUsuario: z.number(),
+  //           totalParoquia: z.number(),
+  //           totalCentros: z.number(),
+  //           totalUsuarioPromessados: z.number(),
+  //           totalUsuarioNaoPromessados: z.number(),
+  //         }),
+  //       },
+  //     },
+  //   },
+  //   async (req, res) => controllUser.dashboard(req, res),
+  // );
 
-  //Alterar dados admin
-  app.put("/updateAdmin/:local", async (req, res) => controllUser.updateAdmin(req, res));
+  // //Alterar dados admin
+  // app.put("/updateAdmin/:local", async (req, res) => controllUser.updateAdmin(req, res));
 }

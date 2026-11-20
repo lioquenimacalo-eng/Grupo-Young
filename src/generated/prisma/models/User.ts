@@ -42,8 +42,8 @@ export type UserMinAggregateOutputType = {
   email: string | null
   senha: string | null
   localizacao: string | null
-  role: $Enums.Role | null
   contacto: number | null
+  role: $Enums.Role | null
 }
 
 export type UserMaxAggregateOutputType = {
@@ -52,8 +52,8 @@ export type UserMaxAggregateOutputType = {
   email: string | null
   senha: string | null
   localizacao: string | null
-  role: $Enums.Role | null
   contacto: number | null
+  role: $Enums.Role | null
 }
 
 export type UserCountAggregateOutputType = {
@@ -62,8 +62,8 @@ export type UserCountAggregateOutputType = {
   email: number
   senha: number
   localizacao: number
-  role: number
   contacto: number
+  role: number
   _all: number
 }
 
@@ -84,8 +84,8 @@ export type UserMinAggregateInputType = {
   email?: true
   senha?: true
   localizacao?: true
-  role?: true
   contacto?: true
+  role?: true
 }
 
 export type UserMaxAggregateInputType = {
@@ -94,8 +94,8 @@ export type UserMaxAggregateInputType = {
   email?: true
   senha?: true
   localizacao?: true
-  role?: true
   contacto?: true
+  role?: true
 }
 
 export type UserCountAggregateInputType = {
@@ -104,8 +104,8 @@ export type UserCountAggregateInputType = {
   email?: true
   senha?: true
   localizacao?: true
-  role?: true
   contacto?: true
+  role?: true
   _all?: true
 }
 
@@ -201,8 +201,8 @@ export type UserGroupByOutputType = {
   email: string | null
   senha: string | null
   localizacao: string
-  role: $Enums.Role
   contacto: number
+  role: $Enums.Role
   _count: UserCountAggregateOutputType | null
   _avg: UserAvgAggregateOutputType | null
   _sum: UserSumAggregateOutputType | null
@@ -234,11 +234,12 @@ export type UserWhereInput = {
   email?: Prisma.StringNullableFilter<"User"> | string | null
   senha?: Prisma.StringNullableFilter<"User"> | string | null
   localizacao?: Prisma.StringFilter<"User"> | string
-  role?: Prisma.EnumRoleFilter<"User"> | $Enums.Role
   contacto?: Prisma.IntFilter<"User"> | number
+  role?: Prisma.EnumRoleFilter<"User"> | $Enums.Role
   arquivos?: Prisma.ArquivoListRelationFilter
   mensagens?: Prisma.MensagemListRelationFilter
   interesses?: Prisma.InteresseListRelationFilter
+  imoveis?: Prisma.ImoveisListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -247,11 +248,12 @@ export type UserOrderByWithRelationInput = {
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   senha?: Prisma.SortOrderInput | Prisma.SortOrder
   localizacao?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   contacto?: Prisma.SortOrder
+  role?: Prisma.SortOrder
   arquivos?: Prisma.ArquivoOrderByRelationAggregateInput
   mensagens?: Prisma.MensagemOrderByRelationAggregateInput
   interesses?: Prisma.InteresseOrderByRelationAggregateInput
+  imoveis?: Prisma.ImoveisOrderByRelationAggregateInput
   _relevance?: Prisma.UserOrderByRelevanceInput
 }
 
@@ -264,11 +266,12 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   email?: Prisma.StringNullableFilter<"User"> | string | null
   senha?: Prisma.StringNullableFilter<"User"> | string | null
   localizacao?: Prisma.StringFilter<"User"> | string
-  role?: Prisma.EnumRoleFilter<"User"> | $Enums.Role
   contacto?: Prisma.IntFilter<"User"> | number
+  role?: Prisma.EnumRoleFilter<"User"> | $Enums.Role
   arquivos?: Prisma.ArquivoListRelationFilter
   mensagens?: Prisma.MensagemListRelationFilter
   interesses?: Prisma.InteresseListRelationFilter
+  imoveis?: Prisma.ImoveisListRelationFilter
 }, "idUser">
 
 export type UserOrderByWithAggregationInput = {
@@ -277,8 +280,8 @@ export type UserOrderByWithAggregationInput = {
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   senha?: Prisma.SortOrderInput | Prisma.SortOrder
   localizacao?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   contacto?: Prisma.SortOrder
+  role?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _avg?: Prisma.UserAvgOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
@@ -295,8 +298,8 @@ export type UserScalarWhereWithAggregatesInput = {
   email?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   senha?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   localizacao?: Prisma.StringWithAggregatesFilter<"User"> | string
-  role?: Prisma.EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
   contacto?: Prisma.IntWithAggregatesFilter<"User"> | number
+  role?: Prisma.EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
 }
 
 export type UserCreateInput = {
@@ -304,11 +307,12 @@ export type UserCreateInput = {
   email?: string | null
   senha?: string | null
   localizacao: string
-  role: $Enums.Role
   contacto: number
+  role: $Enums.Role
   arquivos?: Prisma.ArquivoCreateNestedManyWithoutUserInput
   mensagens?: Prisma.MensagemCreateNestedManyWithoutUserInput
   interesses?: Prisma.InteresseCreateNestedManyWithoutLeadInput
+  imoveis?: Prisma.ImoveisCreateNestedManyWithoutIdUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -317,11 +321,12 @@ export type UserUncheckedCreateInput = {
   email?: string | null
   senha?: string | null
   localizacao: string
-  role: $Enums.Role
   contacto: number
+  role: $Enums.Role
   arquivos?: Prisma.ArquivoUncheckedCreateNestedManyWithoutUserInput
   mensagens?: Prisma.MensagemUncheckedCreateNestedManyWithoutUserInput
   interesses?: Prisma.InteresseUncheckedCreateNestedManyWithoutLeadInput
+  imoveis?: Prisma.ImoveisUncheckedCreateNestedManyWithoutIdUserInput
 }
 
 export type UserUpdateInput = {
@@ -329,11 +334,12 @@ export type UserUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senha?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   localizacao?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   contacto?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   arquivos?: Prisma.ArquivoUpdateManyWithoutUserNestedInput
   mensagens?: Prisma.MensagemUpdateManyWithoutUserNestedInput
   interesses?: Prisma.InteresseUpdateManyWithoutLeadNestedInput
+  imoveis?: Prisma.ImoveisUpdateManyWithoutIdUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -342,11 +348,12 @@ export type UserUncheckedUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senha?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   localizacao?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   contacto?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   arquivos?: Prisma.ArquivoUncheckedUpdateManyWithoutUserNestedInput
   mensagens?: Prisma.MensagemUncheckedUpdateManyWithoutUserNestedInput
   interesses?: Prisma.InteresseUncheckedUpdateManyWithoutLeadNestedInput
+  imoveis?: Prisma.ImoveisUncheckedUpdateManyWithoutIdUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -355,8 +362,8 @@ export type UserCreateManyInput = {
   email?: string | null
   senha?: string | null
   localizacao: string
-  role: $Enums.Role
   contacto: number
+  role: $Enums.Role
 }
 
 export type UserUpdateManyMutationInput = {
@@ -364,8 +371,8 @@ export type UserUpdateManyMutationInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senha?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   localizacao?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   contacto?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
 }
 
 export type UserUncheckedUpdateManyInput = {
@@ -374,8 +381,8 @@ export type UserUncheckedUpdateManyInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senha?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   localizacao?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   contacto?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
 }
 
 export type UserOrderByRelevanceInput = {
@@ -390,8 +397,8 @@ export type UserCountOrderByAggregateInput = {
   email?: Prisma.SortOrder
   senha?: Prisma.SortOrder
   localizacao?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   contacto?: Prisma.SortOrder
+  role?: Prisma.SortOrder
 }
 
 export type UserAvgOrderByAggregateInput = {
@@ -405,8 +412,8 @@ export type UserMaxOrderByAggregateInput = {
   email?: Prisma.SortOrder
   senha?: Prisma.SortOrder
   localizacao?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   contacto?: Prisma.SortOrder
+  role?: Prisma.SortOrder
 }
 
 export type UserMinOrderByAggregateInput = {
@@ -415,8 +422,8 @@ export type UserMinOrderByAggregateInput = {
   email?: Prisma.SortOrder
   senha?: Prisma.SortOrder
   localizacao?: Prisma.SortOrder
-  role?: Prisma.SortOrder
   contacto?: Prisma.SortOrder
+  role?: Prisma.SortOrder
 }
 
 export type UserSumOrderByAggregateInput = {
@@ -442,16 +449,32 @@ export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
 }
 
-export type EnumRoleFieldUpdateOperationsInput = {
-  set?: $Enums.Role
-}
-
 export type IntFieldUpdateOperationsInput = {
   set?: number
   increment?: number
   decrement?: number
   multiply?: number
   divide?: number
+}
+
+export type EnumRoleFieldUpdateOperationsInput = {
+  set?: $Enums.Role
+}
+
+export type UserCreateNestedOneWithoutImoveisInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutImoveisInput, Prisma.UserUncheckedCreateWithoutImoveisInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutImoveisInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutImoveisNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutImoveisInput, Prisma.UserUncheckedCreateWithoutImoveisInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutImoveisInput
+  upsert?: Prisma.UserUpsertWithoutImoveisInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutImoveisInput, Prisma.UserUpdateWithoutImoveisInput>, Prisma.UserUncheckedUpdateWithoutImoveisInput>
 }
 
 export type UserCreateNestedOneWithoutArquivosInput = {
@@ -498,15 +521,82 @@ export type UserUpdateOneRequiredWithoutInteressesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutInteressesInput, Prisma.UserUpdateWithoutInteressesInput>, Prisma.UserUncheckedUpdateWithoutInteressesInput>
 }
 
+export type UserCreateWithoutImoveisInput = {
+  nome: string
+  email?: string | null
+  senha?: string | null
+  localizacao: string
+  contacto: number
+  role: $Enums.Role
+  arquivos?: Prisma.ArquivoCreateNestedManyWithoutUserInput
+  mensagens?: Prisma.MensagemCreateNestedManyWithoutUserInput
+  interesses?: Prisma.InteresseCreateNestedManyWithoutLeadInput
+}
+
+export type UserUncheckedCreateWithoutImoveisInput = {
+  idUser?: number
+  nome: string
+  email?: string | null
+  senha?: string | null
+  localizacao: string
+  contacto: number
+  role: $Enums.Role
+  arquivos?: Prisma.ArquivoUncheckedCreateNestedManyWithoutUserInput
+  mensagens?: Prisma.MensagemUncheckedCreateNestedManyWithoutUserInput
+  interesses?: Prisma.InteresseUncheckedCreateNestedManyWithoutLeadInput
+}
+
+export type UserCreateOrConnectWithoutImoveisInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutImoveisInput, Prisma.UserUncheckedCreateWithoutImoveisInput>
+}
+
+export type UserUpsertWithoutImoveisInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutImoveisInput, Prisma.UserUncheckedUpdateWithoutImoveisInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutImoveisInput, Prisma.UserUncheckedCreateWithoutImoveisInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutImoveisInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutImoveisInput, Prisma.UserUncheckedUpdateWithoutImoveisInput>
+}
+
+export type UserUpdateWithoutImoveisInput = {
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  senha?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  localizacao?: Prisma.StringFieldUpdateOperationsInput | string
+  contacto?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  arquivos?: Prisma.ArquivoUpdateManyWithoutUserNestedInput
+  mensagens?: Prisma.MensagemUpdateManyWithoutUserNestedInput
+  interesses?: Prisma.InteresseUpdateManyWithoutLeadNestedInput
+}
+
+export type UserUncheckedUpdateWithoutImoveisInput = {
+  idUser?: Prisma.IntFieldUpdateOperationsInput | number
+  nome?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  senha?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  localizacao?: Prisma.StringFieldUpdateOperationsInput | string
+  contacto?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
+  arquivos?: Prisma.ArquivoUncheckedUpdateManyWithoutUserNestedInput
+  mensagens?: Prisma.MensagemUncheckedUpdateManyWithoutUserNestedInput
+  interesses?: Prisma.InteresseUncheckedUpdateManyWithoutLeadNestedInput
+}
+
 export type UserCreateWithoutArquivosInput = {
   nome: string
   email?: string | null
   senha?: string | null
   localizacao: string
-  role: $Enums.Role
   contacto: number
+  role: $Enums.Role
   mensagens?: Prisma.MensagemCreateNestedManyWithoutUserInput
   interesses?: Prisma.InteresseCreateNestedManyWithoutLeadInput
+  imoveis?: Prisma.ImoveisCreateNestedManyWithoutIdUserInput
 }
 
 export type UserUncheckedCreateWithoutArquivosInput = {
@@ -515,10 +605,11 @@ export type UserUncheckedCreateWithoutArquivosInput = {
   email?: string | null
   senha?: string | null
   localizacao: string
-  role: $Enums.Role
   contacto: number
+  role: $Enums.Role
   mensagens?: Prisma.MensagemUncheckedCreateNestedManyWithoutUserInput
   interesses?: Prisma.InteresseUncheckedCreateNestedManyWithoutLeadInput
+  imoveis?: Prisma.ImoveisUncheckedCreateNestedManyWithoutIdUserInput
 }
 
 export type UserCreateOrConnectWithoutArquivosInput = {
@@ -542,10 +633,11 @@ export type UserUpdateWithoutArquivosInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senha?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   localizacao?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   contacto?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   mensagens?: Prisma.MensagemUpdateManyWithoutUserNestedInput
   interesses?: Prisma.InteresseUpdateManyWithoutLeadNestedInput
+  imoveis?: Prisma.ImoveisUpdateManyWithoutIdUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutArquivosInput = {
@@ -554,10 +646,11 @@ export type UserUncheckedUpdateWithoutArquivosInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senha?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   localizacao?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   contacto?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   mensagens?: Prisma.MensagemUncheckedUpdateManyWithoutUserNestedInput
   interesses?: Prisma.InteresseUncheckedUpdateManyWithoutLeadNestedInput
+  imoveis?: Prisma.ImoveisUncheckedUpdateManyWithoutIdUserNestedInput
 }
 
 export type UserCreateWithoutMensagensInput = {
@@ -565,10 +658,11 @@ export type UserCreateWithoutMensagensInput = {
   email?: string | null
   senha?: string | null
   localizacao: string
-  role: $Enums.Role
   contacto: number
+  role: $Enums.Role
   arquivos?: Prisma.ArquivoCreateNestedManyWithoutUserInput
   interesses?: Prisma.InteresseCreateNestedManyWithoutLeadInput
+  imoveis?: Prisma.ImoveisCreateNestedManyWithoutIdUserInput
 }
 
 export type UserUncheckedCreateWithoutMensagensInput = {
@@ -577,10 +671,11 @@ export type UserUncheckedCreateWithoutMensagensInput = {
   email?: string | null
   senha?: string | null
   localizacao: string
-  role: $Enums.Role
   contacto: number
+  role: $Enums.Role
   arquivos?: Prisma.ArquivoUncheckedCreateNestedManyWithoutUserInput
   interesses?: Prisma.InteresseUncheckedCreateNestedManyWithoutLeadInput
+  imoveis?: Prisma.ImoveisUncheckedCreateNestedManyWithoutIdUserInput
 }
 
 export type UserCreateOrConnectWithoutMensagensInput = {
@@ -604,10 +699,11 @@ export type UserUpdateWithoutMensagensInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senha?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   localizacao?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   contacto?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   arquivos?: Prisma.ArquivoUpdateManyWithoutUserNestedInput
   interesses?: Prisma.InteresseUpdateManyWithoutLeadNestedInput
+  imoveis?: Prisma.ImoveisUpdateManyWithoutIdUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMensagensInput = {
@@ -616,10 +712,11 @@ export type UserUncheckedUpdateWithoutMensagensInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senha?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   localizacao?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   contacto?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   arquivos?: Prisma.ArquivoUncheckedUpdateManyWithoutUserNestedInput
   interesses?: Prisma.InteresseUncheckedUpdateManyWithoutLeadNestedInput
+  imoveis?: Prisma.ImoveisUncheckedUpdateManyWithoutIdUserNestedInput
 }
 
 export type UserCreateWithoutInteressesInput = {
@@ -627,10 +724,11 @@ export type UserCreateWithoutInteressesInput = {
   email?: string | null
   senha?: string | null
   localizacao: string
-  role: $Enums.Role
   contacto: number
+  role: $Enums.Role
   arquivos?: Prisma.ArquivoCreateNestedManyWithoutUserInput
   mensagens?: Prisma.MensagemCreateNestedManyWithoutUserInput
+  imoveis?: Prisma.ImoveisCreateNestedManyWithoutIdUserInput
 }
 
 export type UserUncheckedCreateWithoutInteressesInput = {
@@ -639,10 +737,11 @@ export type UserUncheckedCreateWithoutInteressesInput = {
   email?: string | null
   senha?: string | null
   localizacao: string
-  role: $Enums.Role
   contacto: number
+  role: $Enums.Role
   arquivos?: Prisma.ArquivoUncheckedCreateNestedManyWithoutUserInput
   mensagens?: Prisma.MensagemUncheckedCreateNestedManyWithoutUserInput
+  imoveis?: Prisma.ImoveisUncheckedCreateNestedManyWithoutIdUserInput
 }
 
 export type UserCreateOrConnectWithoutInteressesInput = {
@@ -666,10 +765,11 @@ export type UserUpdateWithoutInteressesInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senha?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   localizacao?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   contacto?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   arquivos?: Prisma.ArquivoUpdateManyWithoutUserNestedInput
   mensagens?: Prisma.MensagemUpdateManyWithoutUserNestedInput
+  imoveis?: Prisma.ImoveisUpdateManyWithoutIdUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutInteressesInput = {
@@ -678,10 +778,11 @@ export type UserUncheckedUpdateWithoutInteressesInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   senha?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   localizacao?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   contacto?: Prisma.IntFieldUpdateOperationsInput | number
+  role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   arquivos?: Prisma.ArquivoUncheckedUpdateManyWithoutUserNestedInput
   mensagens?: Prisma.MensagemUncheckedUpdateManyWithoutUserNestedInput
+  imoveis?: Prisma.ImoveisUncheckedUpdateManyWithoutIdUserNestedInput
 }
 
 
@@ -693,12 +794,14 @@ export type UserCountOutputType = {
   arquivos: number
   mensagens: number
   interesses: number
+  imoveis: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   arquivos?: boolean | UserCountOutputTypeCountArquivosArgs
   mensagens?: boolean | UserCountOutputTypeCountMensagensArgs
   interesses?: boolean | UserCountOutputTypeCountInteressesArgs
+  imoveis?: boolean | UserCountOutputTypeCountImoveisArgs
 }
 
 /**
@@ -732,6 +835,13 @@ export type UserCountOutputTypeCountInteressesArgs<ExtArgs extends runtime.Types
   where?: Prisma.InteresseWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountImoveisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ImoveisWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   idUser?: boolean
@@ -739,11 +849,12 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   email?: boolean
   senha?: boolean
   localizacao?: boolean
-  role?: boolean
   contacto?: boolean
+  role?: boolean
   arquivos?: boolean | Prisma.User$arquivosArgs<ExtArgs>
   mensagens?: boolean | Prisma.User$mensagensArgs<ExtArgs>
   interesses?: boolean | Prisma.User$interessesArgs<ExtArgs>
+  imoveis?: boolean | Prisma.User$imoveisArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -755,15 +866,16 @@ export type UserSelectScalar = {
   email?: boolean
   senha?: boolean
   localizacao?: boolean
-  role?: boolean
   contacto?: boolean
+  role?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"idUser" | "nome" | "email" | "senha" | "localizacao" | "role" | "contacto", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"idUser" | "nome" | "email" | "senha" | "localizacao" | "contacto" | "role", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   arquivos?: boolean | Prisma.User$arquivosArgs<ExtArgs>
   mensagens?: boolean | Prisma.User$mensagensArgs<ExtArgs>
   interesses?: boolean | Prisma.User$interessesArgs<ExtArgs>
+  imoveis?: boolean | Prisma.User$imoveisArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 
@@ -773,6 +885,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     arquivos: Prisma.$ArquivoPayload<ExtArgs>[]
     mensagens: Prisma.$MensagemPayload<ExtArgs>[]
     interesses: Prisma.$InteressePayload<ExtArgs>[]
+    imoveis: Prisma.$ImoveisPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     idUser: number
@@ -780,8 +893,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     email: string | null
     senha: string | null
     localizacao: string
-    role: $Enums.Role
     contacto: number
+    role: $Enums.Role
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -1125,6 +1238,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   arquivos<T extends Prisma.User$arquivosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$arquivosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ArquivoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   mensagens<T extends Prisma.User$mensagensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$mensagensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   interesses<T extends Prisma.User$interessesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$interessesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InteressePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  imoveis<T extends Prisma.User$imoveisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$imoveisArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ImoveisPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1159,8 +1273,8 @@ export interface UserFieldRefs {
   readonly email: Prisma.FieldRef<"User", 'String'>
   readonly senha: Prisma.FieldRef<"User", 'String'>
   readonly localizacao: Prisma.FieldRef<"User", 'String'>
-  readonly role: Prisma.FieldRef<"User", 'Role'>
   readonly contacto: Prisma.FieldRef<"User", 'Int'>
+  readonly role: Prisma.FieldRef<"User", 'Role'>
 }
     
 
@@ -1573,6 +1687,30 @@ export type User$interessesArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   distinct?: Prisma.InteresseScalarFieldEnum | Prisma.InteresseScalarFieldEnum[]
+}
+
+/**
+ * User.imoveis
+ */
+export type User$imoveisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Imoveis
+   */
+  select?: Prisma.ImoveisSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Imoveis
+   */
+  omit?: Prisma.ImoveisOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ImoveisInclude<ExtArgs> | null
+  where?: Prisma.ImoveisWhereInput
+  orderBy?: Prisma.ImoveisOrderByWithRelationInput | Prisma.ImoveisOrderByWithRelationInput[]
+  cursor?: Prisma.ImoveisWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ImoveisScalarFieldEnum | Prisma.ImoveisScalarFieldEnum[]
 }
 
 /**

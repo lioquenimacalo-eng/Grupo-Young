@@ -783,8 +783,8 @@ export const UserScalarFieldEnum = {
   email: 'email',
   senha: 'senha',
   localizacao: 'localizacao',
-  role: 'role',
-  contacto: 'contacto'
+  contacto: 'contacto',
+  role: 'role'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -803,7 +803,8 @@ export const ImoveisScalarFieldEnum = {
   tipoImovel: 'tipoImovel',
   finalidade: 'finalidade',
   status: 'status',
-  statusUpload: 'statusUpload'
+  statusUpload: 'statusUpload',
+  idUser: 'idUser'
 } as const
 
 export type ImoveisScalarFieldEnum = (typeof ImoveisScalarFieldEnum)[keyof typeof ImoveisScalarFieldEnum]
